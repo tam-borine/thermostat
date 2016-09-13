@@ -1,1 +1,3 @@
 # thermostat
+
+By Ewan Sheldon
