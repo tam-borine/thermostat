@@ -9,7 +9,15 @@ describe('Thermostat', function() {
   });
 
   it('Allows to increase the temperature with the up button', function(){
-    expect(thermostat.up()).toChange(thermostat.temperature());
+    // expect(thermostat.up()).toChange(thermostat.temperature());
+    thermostat.up();
+    expect(thermostat.temperature()).toEqual(21);
+  });
+
+  it('Allows to decrease the temperature with the down button', function(){
+    // expect(thermostat.up()).toChange(thermostat.temperature());
+    thermostat.down();
+    expect(thermostat.temperature()).toEqual(19);
   });
 
 });
