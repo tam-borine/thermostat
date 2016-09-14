@@ -2,6 +2,7 @@ describe('Thermostat', function() {
 
   beforeEach(function() {
     thermostat = new Thermostat();
+
   });
 
   it('Starts at 20 degrees', function(){
@@ -24,8 +25,25 @@ describe('Thermostat', function() {
     for (i = 0; i < 10; i++) {
       thermostat.down();
     }
-    expect(thermostat.temperature()).toEqual(10);
     thermostat.down();
     expect(thermostat.temperature()).toEqual(10);
   });
+
+  it("doesn't go above 25 with PS mode", function(){
+    for (i = 0; i<5; i++) {
+      thermostat.up();
+    }
+    thermostat.up();
+    expect(thermostat.temperature()).toEqual(25)
+  });
+
+  it("doesn't go above 32 with PS mode off", function(){
+    thermostat.pstoggle()
+    for (i = 0; i<12; i++) {
+      thermostat.up();
+    }
+    thermostat.up();
+    expect(thermostat.temperature()).toEqual(32)
+  })
+
 });
