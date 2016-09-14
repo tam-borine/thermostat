@@ -53,26 +53,34 @@ describe('Thermostat', function() {
 
       it("does not let you increase temperature beyond max limit - powersave is off", function(){
         thermostat.powerSaveSwitch();
-        for (var i = 0; i < 13; i++) {
-          thermostat.increaseTemperature();
-        }
+        helperModule.increment(13, thermostat);
         expect(thermostat.temperature).toEqual(32);
       });
 
       it("does not let you increase temperature beyond max limit - powersave is on", function(){
-        for (var i = 0; i < 6; i++) {
-          thermostat.increaseTemperature();
-        }
+        helperModule.increment(6, thermostat);
         expect(thermostat.temperature).toEqual(25);
       });
   });
-  //
-  // describe("colour rules", function() {
-  //   thermostat.temperature = 15;
-  //   expect(thermostat.temperature).toEqual(15);
-  //
-  //
-  // });
+
+  describe("colour rules", function() {
+
+    it("is green at 15 degrees", function() {
+      helperModule.decrement(5, thermostat);
+      expect(thermostat.colour).toEqual("green");
+    });
+
+    it("is yellow at 23 degrees", function() {
+      helperModule.increment(3, thermostat);
+      expect(thermostat.colour).toEqual("yellow");
+    });
+
+    it("is red at 30 degrees", function() {
+      helperModule.increment(10, thermostat);
+      expect(thermostat.colour).toEqual("red");
+    });
+
+  });
 
 
 });
