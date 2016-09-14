@@ -47,3 +47,6 @@ Thermostat.prototype = {
   }
 
 };
+$(document).ready(function(
+  
+))
