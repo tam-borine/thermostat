@@ -27,6 +27,7 @@ describe('Thermostat', function() {
     }
     thermostat.down();
     expect(thermostat.temperature()).toEqual(10);
+    expect(thermostat._colour).toEqual("green");
   });
 
   it("doesn't go above 25 with PS mode", function(){
@@ -35,6 +36,7 @@ describe('Thermostat', function() {
     }
     thermostat.up();
     expect(thermostat.temperature()).toEqual(25)
+    expect(thermostat._colour).toEqual("red");
   });
 
   it("doesn't go above 32 with PS mode off", function(){
@@ -44,6 +46,13 @@ describe('Thermostat', function() {
     }
     thermostat.up();
     expect(thermostat.temperature()).toEqual(32)
+  });
+
+  it('resets temperature to default on pressing the reset button', function(){
+    thermostat.up()
+    thermostat.reset()
+    expect(thermostat.temperature()).toEqual(20)
+    expect(thermostat._colour).toEqual("yellow");
   })
 
 });
