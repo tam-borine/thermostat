@@ -47,6 +47,24 @@ Thermostat.prototype = {
   }
 
 };
-$(document).ready(function(
-  
-))
+$(document).ready(function(){
+  var thermostat = new Thermostat();
+  $('#temp').text(thermostat._temperature);
+
+  $('#temp-up').on('click', function(){
+    thermostat.up()
+    $('#temp').text(thermostat._temperature);
+  });
+  $('#temp-down').on('click', function(){
+    thermostat.down()
+    $('#temp').text(thermostat._temperature);
+  });
+  $('#temp-reset').on('click', function(){
+    thermostat.reset()
+    $('#temp').text(thermostat._temperature);
+  });
+  $('#psm').on('click', function(){
+    thermostat.pstoggle()
+    $('#temp').text(thermostat._temperature);
+  });
+});
