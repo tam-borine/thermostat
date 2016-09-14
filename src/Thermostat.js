@@ -42,29 +42,16 @@ Thermostat.prototype = {
     } else if (this._temperature > 24){
       this._colour = "red"
     } else {
-      this._colour = DEFAULT_COLOUR
+      this._colour = DEFAULT_COLOUR;
     }
-  }
+  },
+
+    powerSaveMode: function() {
+      if (this._maxTemp == PS) {
+        return true;
+      } else {
+        return false;
+      }
+      }
 
 };
-$(document).ready(function(){
-  var thermostat = new Thermostat();
-  $('#temp').text(thermostat._temperature);
-
-  $('#temp-up').on('click', function(){
-    thermostat.up()
-    $('#temp').text(thermostat._temperature);
-  });
-  $('#temp-down').on('click', function(){
-    thermostat.down()
-    $('#temp').text(thermostat._temperature);
-  });
-  $('#temp-reset').on('click', function(){
-    thermostat.reset()
-    $('#temp').text(thermostat._temperature);
-  });
-  $('#psm').on('click', function(){
-    thermostat.pstoggle()
-    $('#temp').text(thermostat._temperature);
-  });
-});
