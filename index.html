@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="src/thermostat.js"></script>
     <script src="src/interface.js"></script>
@@ -8,6 +9,12 @@
   </head>
   <body>
 
+    <form>
+      City Name
+      <input type="text" id='city'></input>
+      <button type="submit" id="wclick">Get my local weather</button>
+    </form>
+<text id='weather'>123</text>
     <section>
       <h1 id="temp"></h1>
       <p>
