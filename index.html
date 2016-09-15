@@ -2,29 +2,46 @@
 <html>
   <head>
 
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="src/thermostat.js"></script>
-    <script src="src/interface.js"></script>
-    <title>Thermostat</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+      <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+      <script src="src/thermostat.js"></script>
+      <script src="src/interface.js"></script>
+      <title>Thermostat</title>
   </head>
+
   <body>
+    <div class="container-fluid">
 
     <form>
       City Name
       <input type="text" id='city'></input>
       <button type="submit" id="wclick">Get my local weather</button>
     </form>
-<text id='weather'>123</text>
+
+    <text id='weather'>123</text>
+
     <section>
-      <h1 id="temp"></h1>
+      <div class="starter template"><h1 id="temp"></h1></div>
       <p>
-        <button id="temp-up">+</button>
-        <button id="temp-down">-</button>
-        <button id="temp-reset">reset</button>
+        <button id="temp-up">  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+        <button id="temp-down"> <span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+        <button id="temp-reset"> <span class="glyphicon glyphicon-off" aria-hidden="true"></span></button>
         power saving mode is <text id="psm-indicate">on</text>
-        <button id="psm">PSM</button>
+        <button id="psm"> <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span></button>
       </p>
     </section>
+  </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
 </html>
